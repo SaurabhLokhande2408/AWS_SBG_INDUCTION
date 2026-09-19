@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@layer utilities {
+  @keyframes aws-logo-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .aws-logo-float {
+    animation: aws-logo-float 3.5s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .aws-logo-float {
+      animation: none;
+    }
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 45px -10px rgba(124, 58, 237, 0.35);
+  }
+  .glow-orange {
+    box-shadow: 0 0 35px -10px rgba(255, 153, 0, 0.35);
+  }
+}

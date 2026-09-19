@@ -1,5 +1,5 @@
 import React from 'react';
-import awsLogo from '../aws_logo.png';
+import awsLogo from '../aws_logo_black_transparent.png';
 import {
   MessageCircle,
   Camera,
@@ -7,9 +7,9 @@ import {
   ArrowRight,
 } from 'lucide-react';
 
-export default function Hero() {
+export default function Hero({ heroRef, logoRef }) {
   return (
-    <section className="relative min-h-[720px] flex items-center overflow-hidden bg-white text-zinc-950">
+    <section ref={heroRef} className="relative min-h-[720px] flex items-center overflow-hidden bg-white text-zinc-950">
 
       {/* Background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -29,26 +29,26 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-28">
+      <div className="relative z-10 w-full px-[5%] sm:px-[6%] lg:px-[7%] pt-32 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24">
 
-        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 lg:gap-24 items-center">
+        <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-20 lg:gap-28 items-center">
 
           {/* =====================================================
               LEFT CONTENT
           ===================================================== */}
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
 
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 mb-5">
               <span className="w-2 h-2 rounded-full bg-emerald-500" />
 
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-zinc-500">
+              <span className="text-sm font-semibold uppercase tracking-[0.18em] text-zinc-500">
                 Build beyond the classroom
               </span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-5xl sm:text-6xl lg:text-[76px] font-extrabold tracking-[-0.045em] leading-[0.98] text-zinc-950">
+            <h1 className="text-[clamp(3.25rem,7vw,7rem)] font-extrabold tracking-[-0.045em] leading-[0.94] text-zinc-950">
 
               Learn.
               <br />
@@ -71,13 +71,13 @@ export default function Hero() {
             </div>
 
             {/* Description */}
-            <p className="text-base sm:text-lg text-zinc-600 max-w-2xl leading-8">
+            <p className="text-lg sm:text-xl lg:text-2xl text-zinc-600 max-w-3xl leading-8 lg:leading-9">
               A hands-on student engineering ecosystem focused on AWS,
               cloud architecture, AI/ML, and production-grade software
               development.
             </p>
 
-            <p className="mt-3 text-sm text-zinc-400 max-w-xl">
+            <p className="mt-4 text-base sm:text-lg text-zinc-400 max-w-2xl">
               Learn by building. Connect with people who build. Turn ideas
               into things that actually work.
             </p>
@@ -85,17 +85,17 @@ export default function Hero() {
             {/* =====================================================
                 SOCIAL / COMMUNITY BUTTONS
             ===================================================== */}
-            <div className="flex flex-col sm:flex-row gap-4 mt-10">
+            <div className="flex flex-col sm:flex-row gap-5 mt-12">
 
               {/* WhatsApp */}
               <a
                 href="https://chat.whatsapp.com/LwAEdiaUoOw9U9qNM2b767?s=cl&p=a&mlu=4&ilr=4"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl bg-zinc-950 text-white hover:bg-zinc-800 font-semibold text-base transition-all duration-200 shadow-sm hover:shadow-lg"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-zinc-950 text-white hover:bg-zinc-800 font-semibold text-lg transition-all duration-200 shadow-sm hover:shadow-lg"
               >
                 <MessageCircle
-                  size={21}
+                  size={24}
                   strokeWidth={2.2}
                   className="transition-transform group-hover:scale-110"
                 />
@@ -103,7 +103,7 @@ export default function Hero() {
                 <span>Join the Community</span>
 
                 <ArrowRight
-                  size={19}
+                  size={22}
                   className="transition-transform group-hover:translate-x-1"
                 />
               </a>
@@ -113,10 +113,10 @@ export default function Hero() {
                 href="https://www.instagram.com/aws.sbg.rmdssoe/"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl bg-white text-zinc-900 border border-zinc-300 hover:border-zinc-500 hover:bg-zinc-50 font-semibold text-base transition-all duration-200 shadow-sm hover:shadow-md"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-white text-zinc-900 border border-zinc-300 hover:border-zinc-500 hover:bg-zinc-50 font-semibold text-lg transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <Camera
-                  size={21}
+                  size={24}
                   strokeWidth={2.2}
                   className="transition-transform group-hover:scale-110"
                 />
@@ -129,10 +129,10 @@ export default function Hero() {
                 href="https://www.linkedin.com/company/145189292"
                 target="_blank"
                 rel="noreferrer"
-                className="group inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl bg-white text-zinc-900 border border-zinc-300 hover:border-zinc-500 hover:bg-zinc-50 font-semibold text-base transition-all duration-200 shadow-sm hover:shadow-md"
+                className="group inline-flex items-center justify-center gap-3 px-8 py-5 rounded-xl bg-white text-zinc-900 border border-zinc-300 hover:border-zinc-500 hover:bg-zinc-50 font-semibold text-lg transition-all duration-200 shadow-sm hover:shadow-md"
               >
                 <BriefcaseBusiness
-                  size={21}
+                  size={24}
                   strokeWidth={2.2}
                   className="transition-transform group-hover:scale-110"
                 />
@@ -150,7 +150,7 @@ export default function Hero() {
           <div className="relative hidden lg:flex items-center justify-center">
 
             {/* Main Card */}
-            <div className="relative w-[390px] h-[430px] rounded-[28px] border border-zinc-200 bg-white shadow-[0_25px_80px_-25px_rgba(0,0,0,0.16)] overflow-hidden">
+            <div className="relative w-[min(34vw,500px)] h-[min(38vw,540px)] min-h-[430px] min-w-[320px] rounded-[32px] border border-zinc-200 bg-white shadow-[0_25px_80px_-25px_rgba(0,0,0,0.16)] overflow-hidden">
 
               {/* Top accent */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-awsOrange via-purple-600 to-emerald-500" />
@@ -173,9 +173,10 @@ export default function Hero() {
                 {/* LARGE AWS LOGO */}
                 <div className="flex items-center justify-center mb-10">
                   <img
+                    ref={logoRef}
                     src={awsLogo}
                     alt="Amazon Web Services"
-                    className="w-[180px] h-auto object-contain"
+                    className="aws-logo-float w-[min(16vw,240px)] h-auto object-contain"
                   />
                 </div>
 
@@ -220,21 +221,6 @@ export default function Hero() {
             </div>
 
 
-            {/* Floating Status */}
-            <div className="absolute -bottom-5 -left-8 px-5 py-3 rounded-xl bg-white border border-zinc-200 shadow-lg">
-
-              <div className="flex items-center gap-2">
-
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-
-                <span className="text-xs font-semibold text-zinc-700">
-                  Build. Deploy. Scale.
-                </span>
-
-              </div>
-
-            </div>
-
           </div>
 
         </div>
@@ -245,25 +231,27 @@ export default function Hero() {
         ===================================================== */}
         <div className="mt-20 pt-7 border-t border-zinc-200">
 
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-4 text-xs font-medium uppercase tracking-[0.16em] text-zinc-400">
+          <div className="w-full flex flex-wrap lg:flex-nowrap items-center justify-center lg:justify-between gap-3 sm:gap-4 py-2 text-[17px] font-medium uppercase tracking-[0.16em]">
 
-            <span>AWS Cloud</span>
+            <span className="shrink-0 rounded-full border border-orange-200 bg-orange-50 px-5 py-2 text-awsOrange transition-transform duration-200 ease-out hover:scale-105 hover:shadow-sm">
+              AWS Cloud
+            </span>
 
-            <span className="text-zinc-300">•</span>
+            <span className="shrink-0 rounded-full border border-purple-200 bg-purple-50 px-5 py-2 text-purple-700 transition-transform duration-200 ease-out hover:scale-105 hover:shadow-sm">
+              AI / ML
+            </span>
 
-            <span>AI / ML</span>
+            <span className="shrink-0 rounded-full border border-emerald-200 bg-emerald-50 px-5 py-2 text-emerald-700 transition-transform duration-200 ease-out hover:scale-105 hover:shadow-sm">
+              DevOps
+            </span>
 
-            <span className="text-zinc-300">•</span>
+            <span className="shrink-0 rounded-full border border-zinc-200 bg-zinc-50 px-5 py-2 text-zinc-600 transition-transform duration-200 ease-out hover:scale-105 hover:shadow-sm">
+              Software Engineering
+            </span>
 
-            <span>DevOps</span>
-
-            <span className="text-zinc-300">•</span>
-
-            <span>Software Engineering</span>
-
-            <span className="text-zinc-300">•</span>
-
-            <span>Student Community</span>
+            <span className="shrink-0 rounded-full border border-sky-200 bg-sky-50 px-5 py-2 text-sky-700 transition-transform duration-200 ease-out hover:scale-105 hover:shadow-sm">
+              Student Community
+            </span>
 
           </div>
 

@@ -1,9 +1,9 @@
 
 import React from 'react';
-import awsLogo from '../aws_logo.png';
+import awsLogo from '../aws_logo_black_transparent.png';
 import { Terminal, Users, Cpu, ArrowUpRight } from 'lucide-react';
 
-export default function About() {
+export default function About({ aboutRef, destinationRef, destinationActive }) {
   const pillars = [
     {
       number: '01',
@@ -36,6 +36,7 @@ export default function About() {
 
   return (
     <section
+      ref={aboutRef}
       id="about"
       className="relative py-24 sm:py-28 bg-white border-t border-zinc-200 overflow-hidden"
     >
@@ -62,45 +63,27 @@ export default function About() {
       </div>
 
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 w-full px-[5%] sm:px-[6%] lg:px-[7%]">
 
         {/* =====================================================
             SECTION HEADER
         ===================================================== */}
-        <div className="grid lg:grid-cols-[0.7fr_1.3fr] gap-10 lg:gap-24 items-end mb-16">
+        <div className="mb-16">
 
-          {/* Label */}
-          <div>
-            <div className="flex items-center gap-3 mb-5">
+          <div className="max-w-5xl">
 
-              <span className="w-8 h-[2px] bg-awsOrange rounded-full" />
-
-              <span className="text-xs uppercase tracking-[0.2em] font-semibold text-zinc-400">
-                Identity & Philosophy
-              </span>
-
-            </div>
-
-            <p className="text-sm font-medium text-zinc-400">
-              AWS Student Builder Group
-              <br />
-              RMD Sinhgad School of Engineering
-            </p>
-          </div>
-
-
-          {/* Heading */}
-          <div className="max-w-3xl">
-
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.04em] leading-[1.02] text-zinc-950">
+            <h2 className="text-[clamp(2.5rem,4.5vw,5.25rem)] font-extrabold tracking-[-0.04em] leading-[1.02] text-zinc-950">
               What is{' '}
-              <span className="text-purple-700">
+              <span
+                ref={destinationRef}
+                className={`transition-colors duration-500 ${destinationActive ? 'text-purple-700' : 'text-zinc-950'}`}
+              >
                 AWS SBG
               </span>{' '}
               RMDSSOE?
             </h2>
 
-            <p className="text-base sm:text-lg text-zinc-500 mt-6 leading-8 max-w-2xl">
+            <p className="text-lg sm:text-xl text-zinc-500 mt-7 leading-8 max-w-3xl">
               A builder-first collective designed to nurture technical
               execution, cloud capability, and production discipline.
             </p>
@@ -113,13 +96,13 @@ export default function About() {
         {/* =====================================================
             PILLARS
         ===================================================== */}
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 gap-7 lg:gap-8">
 
           {pillars.map((item, index) => (
             <div
               key={index}
               className={`
-                group relative p-7 sm:p-8
+                group relative p-8 sm:p-10
                 rounded-2xl
                 bg-white
                 border border-zinc-200
@@ -148,7 +131,7 @@ export default function About() {
               {/* Icon */}
               <div
                 className={`
-                  w-11 h-11 rounded-xl
+                  w-14 h-14 rounded-xl
                   ${item.iconBg}
                   ${item.accent}
                   flex items-center justify-center
@@ -160,13 +143,13 @@ export default function About() {
 
 
               {/* Title */}
-              <h3 className="text-xl font-bold tracking-tight text-zinc-950 mb-3">
+              <h3 className="text-2xl font-bold tracking-tight text-zinc-950 mb-4">
                 {item.title}
               </h3>
 
 
               {/* Description */}
-              <p className="text-sm text-zinc-500 leading-7">
+              <p className="text-base text-zinc-500 leading-7">
                 {item.desc}
               </p>
 

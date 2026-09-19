@@ -1,6 +1,6 @@
 
 import React from 'react';
-import awsLogo from '../aws_logo.png';
+import awsLogo from '../aws_logo_black_transparent.png';
 import { CheckCircle2, ArrowUpRight } from 'lucide-react';
 
 export default function Benefits() {
@@ -40,7 +40,7 @@ export default function Benefits() {
       </div>
 
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 w-full px-[5%] sm:px-[6%] lg:px-[7%]">
 
         {/* =====================================================
             HEADER
@@ -68,16 +68,16 @@ export default function Benefits() {
           </div>
 
 
-          <div className="max-w-3xl">
+          <div className="max-w-5xl">
 
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-[-0.04em] leading-[1.02] text-zinc-950">
+            <h2 className="text-[clamp(2.5rem,4.5vw,5.25rem)] font-extrabold tracking-[-0.04em] leading-[1.02] text-zinc-950">
               More than a{' '}
               <span className="text-purple-700">
                 community.
               </span>
             </h2>
 
-            <p className="mt-6 text-base sm:text-lg text-zinc-500 leading-8 max-w-2xl">
+            <p className="mt-7 text-lg sm:text-xl text-zinc-500 leading-8 max-w-3xl">
               Get access to resources, practical experience, mentorship,
               and opportunities designed to turn learning into work you
               can actually show.
@@ -101,15 +101,15 @@ export default function Benefits() {
             {/* =================================================
                 LEFT — STATEMENT
             ================================================= */}
-            <div className="relative p-8 sm:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-zinc-200 bg-white">
+            <div className="relative p-10 sm:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-zinc-200 bg-white">
 
               {/* AWS Logo */}
-              <div className="flex items-center justify-center w-[82px] h-12 rounded-xl border border-zinc-200 bg-white shadow-sm mb-10">
+              <div className="flex items-center justify-center w-24 h-14 rounded-xl border border-zinc-200 bg-white shadow-sm mb-12">
 
                 <img
                   src={awsLogo}
                   alt="Amazon Web Services"
-                  className="w-[58px] h-auto object-contain"
+                    className="w-[68px] h-auto object-contain"
                 />
 
               </div>
@@ -120,7 +120,7 @@ export default function Benefits() {
               </span>
 
 
-              <h3 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950 leading-tight">
+              <h3 className="mt-5 text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950 leading-tight">
                 Build skills that
                 <br />
                 <span className="text-zinc-400">
@@ -129,7 +129,7 @@ export default function Benefits() {
               </h3>
 
 
-              <p className="mt-6 text-sm text-zinc-500 leading-7 max-w-sm">
+              <p className="mt-7 text-base sm:text-lg text-zinc-500 leading-7 max-w-lg">
                 Whether you're deploying your first container or exploring
                 cloud architecture, the focus stays on practical learning,
                 collaboration, and real technical work.
@@ -179,7 +179,7 @@ export default function Benefits() {
 
 
                     {/* Text */}
-                    <p className="text-sm font-medium text-zinc-600 leading-6 group-hover:text-zinc-950 transition-colors">
+                    <p className="text-base font-medium text-zinc-600 leading-7 group-hover:text-zinc-950 transition-colors">
                       {perk}
                     </p>
 

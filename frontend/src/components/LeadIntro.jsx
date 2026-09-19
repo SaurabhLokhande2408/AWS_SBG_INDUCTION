@@ -13,9 +13,9 @@ export default function LeadIntro() {
       id="lead"
       className="py-24 sm:py-28 bg-white border-t border-zinc-200 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="w-full px-[5%] sm:px-[6%] lg:px-[7%]">
 
-        <div className="rounded-[28px] border border-zinc-200 bg-zinc-50/60 shadow-[0_20px_50px_-25px_rgba(0,0,0,0.12)] p-7 sm:p-9 lg:p-11 flex flex-col md:flex-row items-center gap-9">
+        <div className="w-full max-w-7xl mx-auto rounded-[28px] border border-zinc-200 bg-zinc-50/60 shadow-[0_20px_50px_-25px_rgba(0,0,0,0.12)] p-7 sm:p-9 lg:p-11 grid grid-cols-1 md:grid-cols-[10rem_minmax(0,1fr)] items-center gap-9 lg:gap-12">
 
           {/* =====================================================
               PROFILE IMAGE
@@ -44,7 +44,7 @@ export default function LeadIntro() {
 
 
             {/* Name */}
-            <h3 className="mt-4 text-3xl sm:text-4xl font-bold tracking-tight text-zinc-950">
+            <h3 className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight text-zinc-950">
               Saurabh Lokhande
             </h3>
 
@@ -56,14 +56,14 @@ export default function LeadIntro() {
 
 
             {/* Short Intro */}
-            <p className="mt-4 text-sm text-zinc-600 leading-6 max-w-2xl">
+            <p className="mt-5 text-base sm:text-lg text-zinc-600 leading-7 max-w-3xl">
               A computer science engineering student who enjoys building,
               experimenting, and turning ideas into things that actually work.
             </p>
 
 
             {/* About Points */}
-            <div className="mt-5 space-y-2.5 text-sm text-zinc-600">
+            <div className="mt-6 space-y-3 text-base text-zinc-600">
 
               <div className="flex items-start gap-3 justify-center md:justify-start">
                 <span className="mt-2 w-1.5 h-1.5 shrink-0 rounded-full bg-awsOrange" />

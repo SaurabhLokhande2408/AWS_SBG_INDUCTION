@@ -31,28 +31,28 @@ export default function Roadmap() {
 
   return (
     <section id="roadmap" className="py-20 bg-zinc-950/40 border-t border-white/5">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center max-w-2xl mx-auto mb-14">
+      <div className="w-full px-[5%] sm:px-[6%] lg:px-[7%]">
+        <div className="text-center max-w-4xl mx-auto mb-16">
           <p className="text-xs uppercase tracking-widest text-awsGreen font-semibold mb-2">12-Month Outlook</p>
-          <h2 className="text-3xl font-bold tracking-tight text-white">Next 1 Year Action Plan</h2>
-          <p className="text-zinc-400 text-sm mt-3">Concrete initiatives, hackathons, and execution roadmaps planned for the community.</p>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">Next 1 Year Action Plan</h2>
+          <p className="text-zinc-400 text-base sm:text-lg mt-4">Concrete initiatives, hackathons, and execution roadmaps planned for the community.</p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8">
           {roadmap.map((item, index) => (
             <div 
               key={index}
-              className="p-6 rounded-2xl bg-[#0f0e17] border border-white/5 hover:border-purple-500/20 transition-all flex gap-5"
+              className="p-8 rounded-2xl bg-[#0f0e17] border border-white/5 hover:border-purple-500/20 transition-all flex gap-6"
             >
-              <div className="shrink-0 w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
+              <div className="shrink-0 w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center">
                 {item.icon}
               </div>
               <div>
                 <div className="flex items-center gap-3 mb-1">
                   <span className="text-xs font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded">{item.timeline}</span>
-                  <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
                 </div>
-                <p className="text-sm text-zinc-400 mt-2 leading-relaxed">{item.desc}</p>
+                <p className="text-base text-zinc-400 mt-3 leading-relaxed">{item.desc}</p>
               </div>
             </div>
           ))}

@@ -1,13 +1,13 @@
 
 import React from 'react';
-import awsLogo from '../aws_logo.png';
+import awsLogo from '../aws_logo_black_transparent.png';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl border-b border-zinc-200/80">
       
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 h-[72px] flex items-center justify-between">
+      <div className="w-full px-[5%] sm:px-[6%] lg:px-[7%] h-[88px] flex items-center justify-between">
 
         {/* =====================================================
             BRAND
@@ -92,7 +92,7 @@ export default function Navbar() {
           href="https://chat.whatsapp.com/LwAEdiaUoOw9U9qNM2b767?s=cl&p=a&mlu=4&ilr=4"
           target="_blank"
           rel="noreferrer"
-          className="group flex items-center gap-2 px-4 py-2.5 rounded-lg bg-zinc-950 text-white text-xs sm:text-sm font-semibold hover:bg-zinc-800 transition-all shadow-sm"
+            className="group flex items-center gap-2 px-5 py-3.5 rounded-lg bg-zinc-950 text-white text-sm sm:text-base font-semibold hover:bg-zinc-800 transition-all shadow-sm"
         >
 
           <span className="hidden sm:inline">
@@ -104,7 +104,7 @@ export default function Navbar() {
           </span>
 
           <ArrowUpRight
-            size={15}
+            size={17}
             className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           />
 
