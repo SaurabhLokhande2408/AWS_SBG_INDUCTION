@@ -18,7 +18,7 @@ export default function App() {
         <Benefits />
         <LeadIntro />
       </main>
-
+<Footer/>
     </div>
   );
 }

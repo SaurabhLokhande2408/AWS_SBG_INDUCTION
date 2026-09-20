@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   ArrowRight,
   Cloud,
@@ -17,7 +17,6 @@ const clamp = (v, min, max) =>
 export default function Hero() {
   const sectionRef = useRef(null);
   const canvasRef = useRef(null);
-  const [loaded, setLoaded] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -147,6 +146,8 @@ export default function Hero() {
     };
 
     const onScroll = () => {
+      measure();
+
       if (scrollDistance <= 0) return;
 
       const progress = clamp(
@@ -164,69 +165,23 @@ export default function Hero() {
       }
     };
 
-    const load = (i) =>
-      new Promise((resolve) => {
-        const img = new Image();
-
-        img.decoding = 'async';
-
-        img.onload = async () => {
-          try {
-            await img.decode();
-          } catch (_) {}
-
-          images[i] = img;
-          resolve();
-        };
-
-        img.onerror = resolve;
-        img.src = frameSrc(i + 1);
-      });
-
-    (async () => {
-      await load(0);
-
-      if (cancelled) return;
-
-      resizeCanvas();
-      draw(0);
-
-      setLoaded(1);
-
-      const BATCH = 8;
-
-      for (
-        let i = 1;
-        i < FRAME_COUNT;
-        i += BATCH
-      ) {
-        if (cancelled) return;
-
-        const batch = [];
-
-        for (
-          let j = i;
-          j < Math.min(
-            i + BATCH,
-            FRAME_COUNT
-          );
-          j++
-        ) {
-          batch.push(load(j));
+    const load = (i) => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.onload = () => {
+        images[i] = img;
+        if (Math.round(current) === i) {
+          draw(i);
         }
+      };
+      img.onerror = () => {};
+      img.src = frameSrc(i + 1);
+    };
 
-        await Promise.all(batch);
-
-        setLoaded(
-          Math.min(
-            i + BATCH,
-            FRAME_COUNT
-          )
-        );
-
-        onScroll();
-      }
-    })();
+    for (let i = 0; i < FRAME_COUNT; i += 1) {
+      if (cancelled) return;
+      load(i);
+    }
 
     window.addEventListener(
       'scroll',
@@ -267,7 +222,7 @@ export default function Hero() {
       className="
         relative
         w-full
-        h-[120vh]
+        h-[220vh]
         bg-[#050509]
       "
     >
@@ -390,41 +345,6 @@ export default function Hero() {
           />
 
         </div>
-
-
-        {/* =====================================================
-            LOADING BAR
-        ===================================================== */}
-        {loaded < FRAME_COUNT && (
-          <div
-            className="
-              absolute
-              bottom-0
-              left-0
-              z-40
-              h-[2px]
-              w-full
-              bg-white/5
-            "
-          >
-            <div
-              className="
-                h-full
-                bg-gradient-to-r
-                from-purple-500
-                via-fuchsia-400
-                to-amber-400
-                transition-[width]
-                duration-200
-              "
-              style={{
-                width: `${
-                  (loaded / FRAME_COUNT) * 100
-                }%`,
-              }}
-            />
-          </div>
-        )}
 
 
         {/* =====================================================

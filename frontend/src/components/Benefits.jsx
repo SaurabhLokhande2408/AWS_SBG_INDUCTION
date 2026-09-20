@@ -106,6 +106,7 @@ export default function Benefits() {
             justify-center
             pointer-events-none
             bg-black
+            overflow-hidden
           "
           style={{
             opacity: ironManOpacity,

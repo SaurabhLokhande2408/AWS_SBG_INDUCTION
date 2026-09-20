@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const FRAME_COUNT = 240;
 const frameSrc = (i) => `/frames/frame_${String(i).padStart(4, '0')}.webp`;
@@ -7,7 +7,6 @@ const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 export default function AWSScrollCanvas() {
   const sectionRef = useRef(null);
   const canvasRef = useRef(null);
-  const [loaded, setLoaded] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -90,39 +89,23 @@ export default function AWSScrollCanvas() {
       raf = requestAnimationFrame(tick);
     };
 
-    // ---------- preload ----------
-    const load = (i) =>
-      new Promise((resolve) => {
-        const img = new Image();
-        img.decoding = 'async';
-        img.onload = async () => {
-          try { await img.decode(); } catch (_) {}
-          images[i] = img;
-          resolve();
-        };
-        img.onerror = resolve;
-        img.src = frameSrc(i + 1);
-      });
+    const load = (i) => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.onload = () => {
+        images[i] = img;
+        if (Math.round(current) === i) {
+          draw(i);
+        }
+      };
+      img.onerror = () => {};
+      img.src = frameSrc(i + 1);
+    };
 
-    (async () => {
-      // first frame immediately so the hero is never empty
-      await load(0);
+    for (let i = 0; i < FRAME_COUNT; i += 1) {
       if (cancelled) return;
-      resizeCanvas();
-      draw(0);
-      setLoaded(1);
-
-      // then the rest, in small parallel batches
-      const BATCH = 8;
-      for (let i = 1; i < FRAME_COUNT; i += BATCH) {
-        if (cancelled) return;
-        const batch = [];
-        for (let j = i; j < Math.min(i + BATCH, FRAME_COUNT); j++) batch.push(load(j));
-        await Promise.all(batch);
-        setLoaded(Math.min(i + BATCH, FRAME_COUNT));
-        onScroll(); // keep in sync if user already started scrolling
-      }
-    })();
+      load(i);
+    }
 
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', resizeCanvas, { passive: true });
@@ -141,16 +124,6 @@ export default function AWSScrollCanvas() {
     <section ref={sectionRef} className="relative h-[400vh] w-full bg-[#08070d]">
       <div className="sticky top-0 h-screen w-full overflow-hidden">
         <canvas ref={canvasRef} className="block h-full w-full" />
-
-        {/* tiny loading bar, disappears once all frames are cached */}
-        {loaded < FRAME_COUNT && (
-          <div className="absolute bottom-0 left-0 h-[2px] w-full bg-white/5">
-            <div
-              className="h-full bg-[#7C3AED] transition-[width] duration-200"
-              style={{ width: `${(loaded / FRAME_COUNT) * 100}%` }}
-            />
-          </div>
-        )}
       </div>
     </section>
   );
