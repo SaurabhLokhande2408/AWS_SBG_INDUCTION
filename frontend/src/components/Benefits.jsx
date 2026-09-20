@@ -87,7 +87,7 @@ export default function Benefits() {
     <section
       ref={sectionRef}
       id="benefits"
-      className="relative min-h-[140vh] bg-black"
+      className="relative min-h-[280vh] bg-black"
     >
 
       <div className="sticky top-0 min-h-screen w-full overflow-visible bg-black">

@@ -204,7 +204,7 @@ export default function Roadmap() {
     <section
       ref={sectionRef}
       id="roadmap"
-      className="relative h-[220vh]"
+      className="relative h-[440vh]"
       style={{ backgroundColor: getBackground() }}
     >
       <div className="sticky top-0 h-screen overflow-hidden">
